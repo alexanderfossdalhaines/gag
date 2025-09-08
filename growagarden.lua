@@ -1,7 +1,6 @@
 local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
 local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
 
--- Create window
 local Window = Starlight:CreateWindow({
     Name = "Grow a Garden",
     Subtitle = "v1.0",
@@ -17,15 +16,41 @@ local Window = Starlight:CreateWindow({
     },
 })
 
--- Create a Tab Section
 local TabSection = Window:CreateTabSection("Tab Section")
 
--- Tabs inside the Tab Section
 local Main = TabSection:CreateTab({
     Name = "Main",
     Icon = NebulaIcons:GetIcon("view_in_ar", "Material"),
     Columns = 2,
 }, "INDEX")
+
+local Groupbox = Main:CreateGroupbox({
+    Name = "Info",
+    Column = 1,
+}, "INDEX")
+
+local Paragraph = Groupbox:CreateParagraph({
+    Name = "Keysystems",
+    Content = "Some of these scripts may have key systems. You will be prompted to continue even if a key system is needed or included before the script loads.",
+
+}, "INDEX")
+
+local Divider = Groupbox:CreateDivider()
+
+local Paragraph = Groupbox:CreateParagraph({
+    Name = "Non-Functional Scripts",
+    Content = "If any script isn’t working or risks getting you banned, report it immediately in our Discord.",
+
+}, "INDEX")
+
+local Button = Groupbox:CreateButton({
+    Name = "Copy Discord Link",
+    Icon = NebulaIcons:GetIcon('check', 'Material'),
+    Callback = function()
+setclipboard("discord link")
+    end,
+}, "INDEX")
+
 
 local Game = TabSection:CreateTab({
     Name = "Game Scripts",
@@ -33,13 +58,11 @@ local Game = TabSection:CreateTab({
     Columns = 2,
 }, "INDEX")
 
--- Groupbox inside Game tab
 local Groupbox = Game:CreateGroupbox({
     Name = "Popular Scripts",
     Column = 1,
 }, "INDEX")
 
--- ZapHub Button
 Groupbox:CreateButton({
     Name = "ZapHub",
     Icon = NebulaIcons:GetIcon("check", "Material"),
