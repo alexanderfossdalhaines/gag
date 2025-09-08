@@ -95,7 +95,7 @@ Groupbox:CreateParagraph({
 
 Groupbox:CreateButton({
     Name = "Load",
-    Icon = NebulaIcons:GetIcon("rocket_launch", "Material"), -- Rocket for launch
+    Icon = NebulaIcons:GetIcon("bolt", "Material"), -- Rocket for launch
     Callback = function()
         Starlight:Notification({
             Title = "Fetching Script",
