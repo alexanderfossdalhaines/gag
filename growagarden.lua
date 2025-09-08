@@ -51,6 +51,29 @@ Groupbox:CreateButton({
     end,
 }, "INDEX")
 
+local ChangelogBox = Main:CreateGroupbox({
+    Name = "Changelogs",
+    Column = 2,
+}, "INDEX")
+
+ChangelogBox:CreateParagraph({
+    Name = "Latest Updates",
+    Content = [[
+v1.0 (Initial Release)
+- Added Koronis
+- Added ZapHub
+- Added 20 universal & FE scripts
+- Added changelogs section on main page
+- Added credits
+- Added search function
+- Added safety disclaimers
+- Added multiple help sections
+- Fixed minor GUI bugs
+]],
+}, "INDEX")
+
+local Divider = Groupbox:CreateDivider()
+
 -- Game Scripts Tab
 local Game = TabSection:CreateTab({
     Name = "Game Scripts",
@@ -108,3 +131,26 @@ Groupbox:CreateButton({
         loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
     end,
 }, "INDEX")
+
+local Universal = TabSection:CreateTab({
+    Name = "Universal Scripts",
+    Icon = NebulaIcons:GetIcon("public", "Material"), -- Guaranteed gaming icon
+    Columns = 2,
+}, "INDEX")
+
+local Groupbox = Universal:CreateGroupbox({
+    Name = "Universal Scripts",
+    Column = 1,
+}, "INDEX")
+
+local Button = Groupbox:CreateButton({
+    Name = "Infinite Yield",
+    Icon = NebulaIcons:GetIcon('check', 'Material'),
+    Style = 2,
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+            
+    end,
+}, "INDEX")
+
+
