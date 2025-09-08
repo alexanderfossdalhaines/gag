@@ -1,6 +1,7 @@
 local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
-
 local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
+
+-- Create window
 local Window = Starlight:CreateWindow({
     Name = "Grow a Garden",
     Subtitle = "v1.0",
@@ -16,42 +17,66 @@ local Window = Starlight:CreateWindow({
     },
 })
 
-local Main = TabSection:CreateTab({ Name = "Main", Icon = Icons:GetIcon('view_in_ar','Material'), Columns = 2 }, "INDEX")
-local Game = TabSection:CreateTab({ Name = "Game Scripts", Icon = Icons:GetIcon('view_in_ar','Material'), Columns = 2 }, "INDEX")
+-- Create a Tab Section
+local TabSection = Window:CreateTabSection("Tab Section")
 
-local Groupbox = Game:CreateGroupbox({ Name = "Popular Scripts", Column = 1 }, "INDEX")
+-- Tabs inside the Tab Section
+local Main = TabSection:CreateTab({
+    Name = "Main",
+    Icon = NebulaIcons:GetIcon("view_in_ar", "Material"),
+    Columns = 2,
+}, "INDEX")
 
-local Button = Groupbox:CreateButton({
+local Game = TabSection:CreateTab({
+    Name = "Game Scripts",
+    Icon = NebulaIcons:GetIcon("view_in_ar", "Material"),
+    Columns = 2,
+}, "INDEX")
+
+-- Groupbox inside Game tab
+local Groupbox = Game:CreateGroupbox({
+    Name = "Popular Scripts",
+    Column = 1,
+}, "INDEX")
+
+-- ZapHub Button
+Groupbox:CreateButton({
     Name = "ZapHub",
-    Icon = NebulaIcons:GetIcon('check', 'Material'),
+    Icon = NebulaIcons:GetIcon("check", "Material"),
     Callback = function()
-          Starlight:Notification({
-    Title = "Fetching Script",
-    Icon = Icons:GetIcon('sparkle','Material'),
-    Content = "Loading Grow a Garden module...",
-}, "INDEX")
-      wait(2)
-        Starlight:Destroy()
-loadstring(game:HttpGet('https://zaphub.xyz/Exec'))()
+        Starlight:Notification({
+            Title = "Fetching Script",
+            Icon = NebulaIcons:GetIcon("sparkle", "Material"),
+            Content = "Loading Grow a Garden module...",
+        }, "INDEX")
 
+        task.wait(2)
+        Starlight:Destroy()
+
+        loadstring(game:HttpGet("https://zaphub.xyz/Exec"))()
     end,
 }, "INDEX")
 
-local Button = Groupbox:CreateButton({
+-- Koronis Button
+Groupbox:CreateButton({
     Name = "Koronis",
-    Icon = NebulaIcons:GetIcon('check', 'Material'),
+    Icon = NebulaIcons:GetIcon("check", "Material"),
     Callback = function()
-          Starlight:Notification({
-    Title = "Fetching Script",
-    Icon = Icons:GetIcon('sparkle','Material'),
-    Content = "Loading Grow a Garden module...",
-}, "INDEX")
-      wait(2)
-        Starlight:Destroy()
-loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
+        Starlight:Notification({
+            Title = "Fetching Script",
+            Icon = NebulaIcons:GetIcon("sparkle", "Material"),
+            Content = "Loading Grow a Garden module...",
+        }, "INDEX")
 
+        task.wait(2)
+        Starlight:Destroy()
+
+        loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
     end,
 }, "INDEX")
-local Label = Groupbox:CreateLabel({
-    Name = "Koronis is not supported by Solara or Xeno."
+
+-- Info Paragraph
+local Paragraph = Groupbox:CreateParagraph({
+    Name = "Important info",
+    Content = "Koronis does not support Solara or Xeno.",
 }, "INDEX")
