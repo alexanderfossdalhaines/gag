@@ -63,8 +63,14 @@ local Groupbox = Game:CreateGroupbox({
     Column = 1,
 }, "INDEX")
 
-Groupbox:CreateButton({
+
+local Paragraph = Groupbox:CreateParagraph({
     Name = "ZapHub",
+    Content = "ZapHub is keyless and compatible with all executors.",
+}, "INDEX")
+
+Groupbox:CreateButton({
+    Name = "Load",
     Icon = NebulaIcons:GetIcon("check", "Material"),
     Callback = function()
         Starlight:Notification({
@@ -80,9 +86,16 @@ Groupbox:CreateButton({
     end,
 }, "INDEX")
 
--- Koronis Button
-Groupbox:CreateButton({
+local Divider = Groupbox:CreateDivider()
+
+-- Info Paragraph
+local Paragraph = Groupbox:CreateParagraph({
     Name = "Koronis",
+    Content = "Koronis is keyless but it does not support Solara or Xeno.",
+}, "INDEX")
+
+Groupbox:CreateButton({
+    Name = "Load",
     Icon = NebulaIcons:GetIcon("check", "Material"),
     Callback = function()
         Starlight:Notification({
@@ -98,8 +111,3 @@ Groupbox:CreateButton({
     end,
 }, "INDEX")
 
--- Info Paragraph
-local Paragraph = Groupbox:CreateParagraph({
-    Name = "Important info",
-    Content = "Koronis does not support Solara or Xeno.",
-}, "INDEX")
