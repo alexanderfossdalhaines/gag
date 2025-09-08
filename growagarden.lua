@@ -1,10 +1,11 @@
 local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
 local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
 
+-- Create Main Window
 local Window = Starlight:CreateWindow({
     Name = "Grow a Garden",
     Subtitle = "v1.0",
-    Icon = 123456789,
+    Icon = NebulaIcons:GetIcon("local_florist", "Material"), -- Flower theme
 
     LoadingSettings = {
         Title = "Grow a Garden",
@@ -16,11 +17,12 @@ local Window = Starlight:CreateWindow({
     },
 })
 
-local TabSection = Window:CreateTabSection("Tab Section")
+local TabSection = Window:CreateTabSection("Main")
 
+-- Main Tab
 local Main = TabSection:CreateTab({
     Name = "Main",
-    Icon = NebulaIcons:GetIcon("view_in_ar", "Material"),
+    Icon = NebulaIcons:GetIcon("info", "Material"), -- Info tab
     Columns = 2,
 }, "INDEX")
 
@@ -29,32 +31,30 @@ local Groupbox = Main:CreateGroupbox({
     Column = 1,
 }, "INDEX")
 
-local Paragraph = Groupbox:CreateParagraph({
+Groupbox:CreateParagraph({
     Name = "Keysystems",
     Content = "Some of these scripts may have key systems. You will be prompted to continue even if a key system is needed or included before the script loads.",
-
 }, "INDEX")
 
-local Divider = Groupbox:CreateDivider()
+Groupbox:CreateDivider()
 
-local Paragraph = Groupbox:CreateParagraph({
+Groupbox:CreateParagraph({
     Name = "Non-Functional Scripts",
     Content = "If any script isn’t working or risks getting you banned, report it immediately in our Discord.",
-
 }, "INDEX")
 
-local Button = Groupbox:CreateButton({
+Groupbox:CreateButton({
     Name = "Copy Discord Link",
-    Icon = NebulaIcons:GetIcon('check', 'Material'),
+    Icon = NebulaIcons:GetIcon("content_copy", "Material"), -- Clipboard icon
     Callback = function()
-setclipboard("discord link")
+        setclipboard("discord link")
     end,
 }, "INDEX")
 
-
+-- Game Scripts Tab
 local Game = TabSection:CreateTab({
     Name = "Game Scripts",
-    Icon = NebulaIcons:GetIcon("view_in_ar", "Material"),
+    Icon = NebulaIcons:GetIcon("gamepad", "Material"), -- Guaranteed gaming icon
     Columns = 2,
 }, "INDEX")
 
@@ -63,15 +63,15 @@ local Groupbox = Game:CreateGroupbox({
     Column = 1,
 }, "INDEX")
 
-
-local Paragraph = Groupbox:CreateParagraph({
+-- ZapHub Script
+Groupbox:CreateParagraph({
     Name = "ZapHub",
     Content = "ZapHub is keyless and compatible with all executors.",
 }, "INDEX")
 
 Groupbox:CreateButton({
     Name = "Load",
-    Icon = NebulaIcons:GetIcon("check", "Material"),
+    Icon = NebulaIcons:GetIcon("bolt", "Material"), -- Lightning for speed
     Callback = function()
         Starlight:Notification({
             Title = "Fetching Script",
@@ -81,22 +81,21 @@ Groupbox:CreateButton({
 
         task.wait(2)
         Starlight:Destroy()
-
         loadstring(game:HttpGet("https://zaphub.xyz/Exec"))()
     end,
 }, "INDEX")
 
-local Divider = Groupbox:CreateDivider()
+Groupbox:CreateDivider()
 
--- Info Paragraph
-local Paragraph = Groupbox:CreateParagraph({
+-- Koronis Script
+Groupbox:CreateParagraph({
     Name = "Koronis",
     Content = "Koronis is keyless but it does not support Solara or Xeno.",
 }, "INDEX")
 
 Groupbox:CreateButton({
     Name = "Load",
-    Icon = NebulaIcons:GetIcon("check", "Material"),
+    Icon = NebulaIcons:GetIcon("rocket_launch", "Material"), -- Rocket for launch
     Callback = function()
         Starlight:Notification({
             Title = "Fetching Script",
@@ -106,8 +105,6 @@ Groupbox:CreateButton({
 
         task.wait(2)
         Starlight:Destroy()
-
         loadstring(game:HttpGet("https://koronis.xyz/hub.lua"))()
     end,
 }, "INDEX")
-
